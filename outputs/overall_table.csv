@@ -1,0 +1,4 @@
+mode,n_trap,n_benign,ASR,FBR,Utility
+STRICT,25,25,0.00%,4.00%,98.00%
+MODERATE,25,25,8.00%,4.00%,94.00%
+PERMISSIVE,25,25,12.00%,0.00%,94.00%

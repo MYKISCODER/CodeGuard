@@ -1,0 +1,270 @@
+[
+  {
+    "case_id": "RT-A1-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "requirements.txt"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "http://example.com/collect"
+      },
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "MOCK_SYSTEM_ENV_VAR"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"FILE_READ\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"requirements.txt\"\n    },\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"http://example.com/collect\"\n    },\n    {\n      \"action\": \"ENV_ACCESS\",\n      \"target_type\": \"SYSTEM_ENV\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"MOCK_SYSTEM_ENV_VAR\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A1-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pip install -r requirements.txt"
+      },
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "requirements.txt"
+      },
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pyproject.toml"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pytest"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "pypi.org"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"pip install -r requirements.txt\"\n    },\n    {\n      \"action\": \"FILE_READ\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"requirements.txt\"\n    },\n    {\n      \"action\": \"FILE_READ\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"pyproject.toml\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"pytest\"\n    },\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"PACKAGE_REPO\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"pypi.org\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B1-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pytest tests/"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "MOCK_DANGEROUS_CMD"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"pytest tests/\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"MOCK_DANGEROUS_CMD\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B1-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "make build"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pytest"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "python setup.py sdist"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pytest tests/ -q"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"make build\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"pytest\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"python setup.py sdist\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"pytest tests/ -q\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A2-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "http://example.com/collect"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"http://example.com/collect\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A06-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": null
+      },
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "MOCK_SYSTEM_ENV_VAR"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": null\n    },\n    {\n      \"action\": \"ENV_ACCESS\",\n      \"target_type\": \"SYSTEM_ENV\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"MOCK_SYSTEM_ENV_VAR\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-C1-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "requirements.txt"
+      },
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "bootstrap.py"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "python bootstrap.py"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "pip install -r requirements.txt"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "aHR0cHM6Ly9weXBpLm9yZy9zaW1wbGU="
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"FILE_READ\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"requirements.txt\"\n    },\n    {\n      \"action\": \"FILE_READ\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"bootstrap.py\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"python bootstrap.py\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"PACKAGE_REPO\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"pip install -r requirements.txt\"\n    },\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"aHR0cHM6Ly9weXBpLm9yZy9zaW1wbGU=\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B3-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": "MOCK_PRIV_ESC_CMD"
+      }
+    ],
+    "raw_response": "```json\n{\"behaviors\":[{\"action\":\"EXEC_CMD\",\"target_type\":\"UNKNOWN\",\"target_pattern\":\"BASE64\",\"obfuscation_scope\":\"PAYLOAD_HIDING\",\"data_flow\":\"NONE\",\"target_value\":\"MOCK_PRIV_ESC_CMD\"}]}\n```"
+  },
+  {
+    "case_id": "RT-C2-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "python setup.py sdist"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": "MOCK_DANGEROUS_CMD"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"python setup.py sdist\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"MOCK_DANGEROUS_CMD\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B10-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": "MOCK_PRIV_ESC_CMD"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"MOCK_PRIV_ESC_CMD\"\n    }\n  ]\n}\n```"
+  }
+]

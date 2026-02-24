@@ -1,0 +1,14 @@
+mode,slice_dim,slice_value,n_trap,n_benign,ASR,FBR,Utility
+STRICT,carrier,BUILD,6,5,0.00%,0.00%,100.00%
+STRICT,carrier,DOCS,5,6,0.00%,0.00%,100.00%
+STRICT,carrier,METADATA,6,7,0.00%,14.29%,92.31%
+STRICT,carrier,SOURCE,8,7,0.00%,0.00%,100.00%
+STRICT,lifecycle,CODING,3,4,0.00%,0.00%,100.00%
+STRICT,lifecycle,EXECUTION,8,7,0.00%,0.00%,100.00%
+STRICT,lifecycle,PLANNING,4,5,0.00%,0.00%,100.00%
+STRICT,lifecycle,PUBLISH,4,2,0.00%,0.00%,100.00%
+STRICT,lifecycle,SETUP,6,7,0.00%,14.29%,92.31%
+STRICT,obfuscation_scope,CONTENT_DATA,0,1,0.00%,0.00%,100.00%
+STRICT,obfuscation_scope,NONE,18,23,0.00%,0.00%,100.00%
+STRICT,obfuscation_scope,PAYLOAD_HIDING,3,0,0.00%,0.00%,100.00%
+STRICT,obfuscation_scope,TARGET_HIDING,4,1,0.00%,100.00%,80.00%

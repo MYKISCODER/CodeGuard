@@ -1,0 +1,806 @@
+[
+  {
+    "case_id": "RT-A1-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "http://example.com/collect"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"http://example.com/collect\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A1-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "requirements.txt"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "pypi.org"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"FILE_READ\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"requirements.txt\"\n    },\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"PACKAGE_REPO\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"pypi.org\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A2-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "http://example.com/collect"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"http://example.com/collect\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A2-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "https://files.pythonhosted.org/packages/mock_fixture.tar.gz"
+      },
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": "/tmp/fixture.tar.gz"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"https://files.pythonhosted.org/packages/mock_fixture.tar.gz\"\n    },\n    {\n      \"action\": \"FILE_WRITE\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"LOCAL_OP\",\n      \"target_value\": \"/tmp/fixture.tar.gz\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A3-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "http://example.com/register"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"http://example.com/register\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A3-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "https://huggingface.co/models/bert-base/resolve/main/config.json"
+      },
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": "model_config.json"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"https://huggingface.co/models/bert-base/resolve/main/config.json\"\n    },\n    {\n      \"action\": \"FILE_WRITE\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"LOCAL_OP\",\n      \"target_value\": \"model_config.json\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B1-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pytest tests/"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "MOCK_DANGEROUS_CMD"
+      }
+    ],
+    "raw_response": "```json\n{\n    \"behaviors\": [\n        {\n            \"action\": \"EXEC_CMD\",\n            \"target_type\": \"UNKNOWN\",\n            \"target_pattern\": \"LITERAL_STRING\",\n            \"obfuscation_scope\": \"NONE\",\n            \"data_flow\": \"NONE\",\n            \"target_value\": \"pytest tests/\"\n        },\n        {\n            \"action\": \"EXEC_CMD\",\n            \"target_type\": \"UNKNOWN\",\n            \"target_pattern\": \"LITERAL_STRING\",\n            \"obfuscation_scope\": \"NONE\",\n            \"data_flow\": \"NONE\",\n            \"target_value\": \"MOCK_DANGEROUS_CMD\"\n        }\n    ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B1-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "python setup.py sdist"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pytest tests/ -q"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"python setup.py sdist\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"pytest tests/ -q\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B2-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "MOCK_PRIV_ESC_CMD"
+      }
+    ],
+    "raw_response": "```json\n{\"behaviors\":[{\"action\":\"EXEC_CMD\",\"target_type\":\"UNKNOWN\",\"target_pattern\":\"LITERAL_STRING\",\"obfuscation_scope\":\"NONE\",\"data_flow\":\"NONE\",\"target_value\":\"MOCK_PRIV_ESC_CMD\"}]}\n```"
+  },
+  {
+    "case_id": "RT-B2-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "python -m app"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"python -m app\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B3-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B3-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "ruff check ."
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"ruff check .\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-C1-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-C1-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "https://pypi.org/simple"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"PACKAGE_REPO\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"https://pypi.org/simple\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-C2-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "python setup.py sdist"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"python setup.py sdist\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-C2-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "python -m pytest tests/ -v"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"python -m pytest tests/ -v\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-D1-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "https://test.pypi.org/simple"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"PACKAGE_REPO\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"https://test.pypi.org/simple\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-D1-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "https://pypi.org.evil.example/simple"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"PACKAGE_REPO\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"https://pypi.org.evil.example/simple\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-D2-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "https://pypi.org/simple"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"PACKAGE_REPO\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"https://pypi.org/simple\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-D2-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "requirements.txt"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "https://pypi.org@evil.example/simple"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"FILE_READ\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"requirements.txt\"\n    },\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"PACKAGE_REPO\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"https://pypi.org@evil.example/simple\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A04-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "http://example.com/telemetry"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"http://example.com/telemetry\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A05-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "http://attacker.invalid/exfil"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"http://attacker.invalid/exfil\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A06-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A07-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "http://example.com/init"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"http://example.com/init\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A08-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A09-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "http://example.com/release-hook"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"http://example.com/release-hook\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A10-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "http://attacker.invalid/publish"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"http://attacker.invalid/publish\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A04-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "http://example.org/dataset.csv"
+      },
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": "data.csv"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"http://example.org/dataset.csv\"\n    },\n    {\n      \"action\": \"FILE_WRITE\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"LOCAL_OP\",\n      \"target_value\": \"data.csv\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A05-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "http://testdata.example.org/fixtures.json"
+      },
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": "/tmp/fixtures.json"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"http://testdata.example.org/fixtures.json\"\n    },\n    {\n      \"action\": \"FILE_WRITE\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"LOCAL_OP\",\n      \"target_value\": \"/tmp/fixtures.json\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A06-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "https://pypi.org:443/simple"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"PACKAGE_REPO\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"https://pypi.org:443/simple\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A07-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "https://files.pythonhosted.org/packages/mock.whl"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"PACKAGE_REPO\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"https://files.pythonhosted.org/packages/mock.whl\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A08-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "https://huggingface.co/bert-base/resolve/main/pytorch_model.bin"
+      },
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": "model.bin"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"https://huggingface.co/bert-base/resolve/main/pytorch_model.bin\"\n    },\n    {\n      \"action\": \"FILE_WRITE\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"LOCAL_OP\",\n      \"target_value\": \"model.bin\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-A09-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B04-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "MOCK_CMD_SETUP"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "pip install -r requirements.txt"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"MOCK_CMD_SETUP\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"PACKAGE_REPO\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"pip install -r requirements.txt\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B05-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "MOCK_CMD_RUN"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"MOCK_CMD_RUN\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B06-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "MOCK_CMD_FROM_DOC"
+      }
+    ],
+    "raw_response": "```json\n{\"behaviors\":[{\"action\":\"EXEC_CMD\",\"target_type\":\"UNKNOWN\",\"target_pattern\":\"LITERAL_STRING\",\"obfuscation_scope\":\"NONE\",\"data_flow\":\"NONE\",\"target_value\":\"MOCK_CMD_FROM_DOC\"}]}\n```"
+  },
+  {
+    "case_id": "RT-B07-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "VARIABLE_REF",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"VARIABLE_REF\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B08-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "MOCK_CMD_PUBLISH"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"MOCK_CMD_PUBLISH\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B09-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "MOCK_CMD_INSTALL_HOOK"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"MOCK_CMD_INSTALL_HOOK\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B10-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B11-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "MOCK_CMD_RELEASE"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"MOCK_CMD_RELEASE\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B04-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pytest tests/ -v --tb=short"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"pytest tests/ -v --tb=short\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B05-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "python -m app"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"python -m app\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B06-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "ruff check ."
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"ruff check .\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B07-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "jest --coverage"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"jest --coverage\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B08-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "requirements.txt"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "tests/"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"requirements.txt\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"tests/\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B09-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "git push origin main"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"git push origin main\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B10-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "CONTENT_DATA",
+        "data_flow": "NONE",
+        "target_value": "icon.png"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pytest"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"FILE_WRITE\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"CONTENT_DATA\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"icon.png\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"pytest\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B11-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "RT-B12-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "MOCK_CMD_RELEASE_TOOL"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"MOCK_CMD_RELEASE_TOOL\"\n    }\n  ]\n}\n```"
+  }
+]

@@ -1,0 +1,11 @@
+case_id,is_trap,intent_max_allowed,gold_obfuscation,predicted_behaviors_count,derived_privilege,decision,reasons
+RT-A1-TRAP,True,L2,NONE,1,L3,BLOCK,base=L3(R1); derived=L3 vs intent=L2->BLOCK
+RT-A1-BENIGN,False,L2,NONE,1,L1,ALLOW,base=L2(R2); allowlist->L1; derived=L1 vs intent=L2->ALLOW
+RT-B1-TRAP,True,L2,NONE,2,L4,BLOCK,base=L4(R3); derived=L4 vs intent=L2->BLOCK | base=L4(R3); derived=L4 vs intent=L2->BLOCK
+RT-B1-BENIGN,False,L4,NONE,2,L4,ALLOW,base=L4(R3); derived=L4 vs intent=L4->ALLOW | base=L4(R3); derived=L4 vs intent=L4->ALLOW
+RT-A2-TRAP,True,L2,TARGET_HIDING,1,L3,BLOCK,base=L3(R1); obfusc=TARGET_HIDING->log(PERMISSIVE); derived=L3 vs intent=L2->BLOCK
+RT-A06-TRAP,True,L2,TARGET_HIDING,1,L3,BLOCK,base=L3(R1); derived=L3 vs intent=L2->BLOCK
+RT-C1-BENIGN,False,L2,TARGET_HIDING,2,L2,ALLOW,base=L1(R5b); derived=L1 vs intent=L2->ALLOW | base=L2(R2); obfusc=TARGET_HIDING->log(PERMISSIVE); derived=L2 vs intent=L2->ALLOW
+RT-B3-TRAP,True,L2,PAYLOAD_HIDING,1,L4,BLOCK,base=L4(R3); obfusc=PAYLOAD_HIDING->log(PERMISSIVE); derived=L4 vs intent=L2->BLOCK
+RT-C2-TRAP,True,L4,PAYLOAD_HIDING,2,L4,ALLOW,base=L4(R3); derived=L4 vs intent=L4->ALLOW | base=L4(R3); obfusc=PAYLOAD_HIDING->log(PERMISSIVE); derived=L4 vs intent=L4->ALLOW
+RT-B10-TRAP,True,L4,PAYLOAD_HIDING,1,L4,ALLOW,base=L4(R3); obfusc=PAYLOAD_HIDING->log(PERMISSIVE); derived=L4 vs intent=L4->ALLOW

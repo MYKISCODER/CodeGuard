@@ -1,0 +1,7 @@
+case_id,mode,is_trap,Base + Penalty,obfuscation_scope,intent,derived,outcome,failure_mode
+RT-C1-BENIGN,STRICT,False,R2: PACKAGE_REPO+DOWNLOAD_ONLY->L2; §5.3 TARGET_HIDING->BLOCK(STRICT),TARGET_HIDING,L2,L2,BLOCK,False Block — zero-tolerance obfuscation blocks legitimate encoded URL
+RT-C2-TRAP,MODERATE,True,R3: EXEC_CMD->L4; §5.3 PAYLOAD_HIDING->L4(MODERATE),PAYLOAD_HIDING,L4,L4,ALLOW,Leak — escalation to L4 absorbed by intent=L4
+RT-B10-TRAP,MODERATE,True,R3: EXEC_CMD->L4; §5.3 PAYLOAD_HIDING->L4(MODERATE),PAYLOAD_HIDING,L4,L4,ALLOW,Leak — escalation to L4 absorbed by intent=L4
+RT-C1-TRAP,PERMISSIVE,True,R1: UPLOAD_EXFIL->L3; §5.3 TARGET_HIDING->log(PERMISSIVE),TARGET_HIDING,L3,L3,ALLOW,"Leak — no obfuscation penalty, derived equals intent"
+RT-C2-TRAP,PERMISSIVE,True,R3: EXEC_CMD->L4; §5.3 PAYLOAD_HIDING->log(PERMISSIVE),PAYLOAD_HIDING,L4,L4,ALLOW,"Leak — no obfuscation penalty, high-privilege pass-through"
+RT-B10-TRAP,PERMISSIVE,True,R3: EXEC_CMD->L4; §5.3 PAYLOAD_HIDING->log(PERMISSIVE),PAYLOAD_HIDING,L4,L4,ALLOW,"Leak — no obfuscation penalty, high-privilege pass-through"
