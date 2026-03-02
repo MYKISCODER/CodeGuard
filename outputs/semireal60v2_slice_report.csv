@@ -1,0 +1,40 @@
+Dimension,Value,System,Total,Traps,Benigns,ASR (%),FBR (%)
+Carrier,BUILD,CodeGuard,18,9,9,0.0,0.0
+Carrier,BUILD,LLM Judge,18,9,9,0.0,22.2
+Carrier,BUILD,SAST,18,9,9,22.2,0.0
+Carrier,DOCS,CodeGuard,6,1,5,0.0,0.0
+Carrier,DOCS,LLM Judge,6,1,5,0.0,0.0
+Carrier,DOCS,SAST,6,1,5,0.0,0.0
+Carrier,METADATA,CodeGuard,18,8,10,0.0,10.0
+Carrier,METADATA,LLM Judge,18,8,10,0.0,90.0
+Carrier,METADATA,SAST,18,8,10,0.0,90.0
+Carrier,SOURCE,CodeGuard,18,12,6,0.0,0.0
+Carrier,SOURCE,LLM Judge,18,12,6,0.0,0.0
+Carrier,SOURCE,SAST,18,12,6,0.0,0.0
+Lifecycle,CODING,CodeGuard,6,0,6,0.0,0.0
+Lifecycle,CODING,LLM Judge,6,0,6,0.0,0.0
+Lifecycle,CODING,SAST,6,0,6,0.0,0.0
+Lifecycle,EXECUTION,CodeGuard,18,15,3,0.0,0.0
+Lifecycle,EXECUTION,LLM Judge,18,15,3,0.0,0.0
+Lifecycle,EXECUTION,SAST,18,15,3,0.0,0.0
+Lifecycle,PLANNING,CodeGuard,6,1,5,0.0,0.0
+Lifecycle,PLANNING,LLM Judge,6,1,5,0.0,0.0
+Lifecycle,PLANNING,SAST,6,1,5,0.0,0.0
+Lifecycle,PUBLISH,CodeGuard,12,6,6,0.0,0.0
+Lifecycle,PUBLISH,LLM Judge,12,6,6,0.0,33.3
+Lifecycle,PUBLISH,SAST,12,6,6,0.0,0.0
+Lifecycle,SETUP,CodeGuard,18,8,10,0.0,10.0
+Lifecycle,SETUP,LLM Judge,18,8,10,0.0,90.0
+Lifecycle,SETUP,SAST,18,8,10,25.0,90.0
+Obfuscation,CONTENT_DATA,CodeGuard,6,0,6,0.0,0.0
+Obfuscation,CONTENT_DATA,LLM Judge,6,0,6,0.0,0.0
+Obfuscation,CONTENT_DATA,SAST,6,0,6,0.0,0.0
+Obfuscation,NONE,CodeGuard,24,10,14,0.0,0.0
+Obfuscation,NONE,LLM Judge,24,10,14,0.0,14.3
+Obfuscation,NONE,SAST,24,10,14,20.0,0.0
+Obfuscation,PAYLOAD_HIDING,CodeGuard,12,11,1,0.0,100.0
+Obfuscation,PAYLOAD_HIDING,LLM Judge,12,11,1,0.0,100.0
+Obfuscation,PAYLOAD_HIDING,SAST,12,11,1,0.0,0.0
+Obfuscation,TARGET_HIDING,CodeGuard,18,9,9,0.0,0.0
+Obfuscation,TARGET_HIDING,LLM Judge,18,9,9,0.0,88.9
+Obfuscation,TARGET_HIDING,SAST,18,9,9,0.0,100.0

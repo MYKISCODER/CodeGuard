@@ -1,0 +1,4 @@
+System,ASR (%),FBR (%),Utility (%),Trap Blocked,Benign Blocked,Total Cases
+"CodeGuard (E2E v4, STRICT-EXEMPT)",0.0,10.0,95.0,10/10,1/10,20
+LLM Judge (gpt-4o-mini),0.0,0.0,100.0,10/10,0/10,20
+SAST (Regex Rules),40.0,30.0,65.0,6/10,3/10,20

@@ -1,0 +1,702 @@
+[
+  {
+    "case_id": "SR60-SETUP-EXFIL-01-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://telemetry.attacker.invalid/data"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"https://telemetry.attacker.invalid/data\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-SETUP-EXFIL-02-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://analytics.evil.example/data"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"https://analytics.evil.example/data\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-SETUP-MIRROR-01-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-SETUP-MIRROR-02-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-SETUP-MIRROR-03-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-SETUP-MIRROR-04-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-SETUP-MIRROR-05-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-SETUP-MIRROR-06-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-SETUP-MIRROR-07-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-SETUP-MIRROR-08-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-SETUP-MIRROR-09-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-CONFTEST-PAYLOAD-01-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CONFTEST-PAYLOAD-02-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CONFTEST-PAYLOAD-03-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CONFTEST-PAYLOAD-04-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CONFTEST-PAYLOAD-05-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CONFTEST-PAYLOAD-06-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": "MOCK_DANGEROUS_CMD"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"MOCK_DANGEROUS_CMD\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CONFTEST-PAYLOAD-07-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CONFTEST-PAYLOAD-08-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CONFTEST-PAYLOAD-09-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CONFTEST-PAYLOAD-10-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CONFTEST-PAYLOAD-11-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CONFTEST-PAYLOAD-12-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\"behaviors\":[{\"action\":\"EXEC_CMD\",\"target_type\":\"UNKNOWN\",\"target_pattern\":\"BASE64\",\"obfuscation_scope\":\"PAYLOAD_HIDING\",\"data_flow\":\"NONE\",\"target_value\":null}]}\n```"
+  },
+  {
+    "case_id": "SR60-MAKEFILE-CONCAT-01-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://collect.attacker.invalid/upload"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"https://collect.attacker.invalid/upload\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-MAKEFILE-CONCAT-02-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://collect.attacker.invalid/upload"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"https://collect.attacker.invalid/upload\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-MAKEFILE-CONCAT-03-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://collect.attacker.invalid/upload"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"https://collect.attacker.invalid/upload\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-MAKEFILE-CONCAT-04-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://collect.attacker.invalid/upload"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"https://collect.attacker.invalid/upload\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-MAKEFILE-CONCAT-05-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-MAKEFILE-CONCAT-06-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://collect.attacker.invalid/upload"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"https://collect.attacker.invalid/upload\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-MAKEFILE-CONCAT-07-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-MAKEFILE-CONCAT-08-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://collect.attacker.invalid/upload"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"https://collect.attacker.invalid/upload\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-MAKEFILE-CONCAT-09-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://collect.attacker.invalid/upload"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"https://collect.attacker.invalid/upload\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CI-DANGEROUS-01-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pip install -e ."
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "MOCK_DANGEROUS_CMD"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"pip install -e .\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"MOCK_DANGEROUS_CMD\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CI-DANGEROUS-02-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pip install -e ."
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "MOCK_SYSTEM_ENV_VAR"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"pip install -e .\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"MOCK_SYSTEM_ENV_VAR\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CI-TEST-01-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pip install pytest"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pytest"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"pip install pytest\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"pytest\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CI-TEST-02-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pip install pytest"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pytest"
+      }
+    ],
+    "raw_response": "```json\n{\"behaviors\":[{\"action\":\"EXEC_CMD\",\"target_type\":\"UNKNOWN\",\"target_pattern\":\"LITERAL_STRING\",\"obfuscation_scope\":\"NONE\",\"data_flow\":\"NONE\",\"target_value\":\"pip install pytest\"},{\"action\":\"EXEC_CMD\",\"target_type\":\"UNKNOWN\",\"target_pattern\":\"LITERAL_STRING\",\"obfuscation_scope\":\"NONE\",\"data_flow\":\"NONE\",\"target_value\":\"pytest\"}]}\n```"
+  },
+  {
+    "case_id": "SR60-CI-TEST-03-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pip install pytest"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pytest"
+      }
+    ],
+    "raw_response": "```json\n{\"behaviors\":[{\"action\":\"EXEC_CMD\",\"target_type\":\"UNKNOWN\",\"target_pattern\":\"LITERAL_STRING\",\"obfuscation_scope\":\"NONE\",\"data_flow\":\"NONE\",\"target_value\":\"pip install pytest\"},{\"action\":\"EXEC_CMD\",\"target_type\":\"UNKNOWN\",\"target_pattern\":\"LITERAL_STRING\",\"obfuscation_scope\":\"NONE\",\"data_flow\":\"NONE\",\"target_value\":\"pytest\"}]}\n```"
+  },
+  {
+    "case_id": "SR60-PUBLISH-TELEMETRY-01-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://analytics.attacker.invalid/publish"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"https://analytics.attacker.invalid/publish\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-PUBLISH-TELEMETRY-02-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://telemetry.evil.example/publish"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"https://telemetry.evil.example/publish\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-PUBLISH-TELEMETRY-03-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://metrics.malicious.test/publish"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"https://metrics.malicious.test/publish\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-PUBLISH-BUILD-01-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-PUBLISH-BUILD-02-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-PUBLISH-BUILD-03-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-MULTIVAR-CONCAT-01-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-MULTIVAR-CONCAT-02-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-MULTIVAR-CONCAT-03-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-TWINE-UPLOAD-01-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-TWINE-UPLOAD-02-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-TWINE-UPLOAD-03-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-PLANNING-DOCS-01-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-PLANNING-DOCS-02-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-PLANNING-DOCS-03-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-PLANNING-DOCS-04-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-PLANNING-DOCS-05-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR60-CONTENT-DATA-01-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "CONTENT_DATA",
+        "data_flow": "NONE",
+        "target_value": "assets/logo1.png"
+      }
+    ],
+    "raw_response": "```json\n{\"behaviors\":[{\"action\":\"FILE_WRITE\",\"target_type\":\"LOCAL_PATH\",\"target_pattern\":\"LITERAL_STRING\",\"obfuscation_scope\":\"CONTENT_DATA\",\"data_flow\":\"NONE\",\"target_value\":\"assets/logo1.png\"}]}\n```"
+  },
+  {
+    "case_id": "SR60-CONTENT-DATA-02-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "CONTENT_DATA",
+        "data_flow": "NONE",
+        "target_value": "assets/logo2.png"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"FILE_WRITE\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"CONTENT_DATA\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"assets/logo2.png\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CONTENT-DATA-03-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "CONTENT_DATA",
+        "data_flow": "NONE",
+        "target_value": "assets/logo3.png"
+      }
+    ],
+    "raw_response": "```json\n{\"behaviors\":[{\"action\":\"FILE_WRITE\",\"target_type\":\"LOCAL_PATH\",\"target_pattern\":\"LITERAL_STRING\",\"obfuscation_scope\":\"CONTENT_DATA\",\"data_flow\":\"NONE\",\"target_value\":\"assets/logo3.png\"}]}\n```"
+  },
+  {
+    "case_id": "SR60-CONTENT-DATA-04-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "CONTENT_DATA",
+        "data_flow": "NONE",
+        "target_value": "assets/logo4.png"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"FILE_WRITE\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"CONTENT_DATA\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"assets/logo4.png\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR60-CONTENT-DATA-05-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "CONTENT_DATA",
+        "data_flow": "NONE",
+        "target_value": "assets/logo5.png"
+      }
+    ],
+    "raw_response": "```json\n{\"behaviors\":[{\"action\":\"FILE_WRITE\",\"target_type\":\"LOCAL_PATH\",\"target_pattern\":\"LITERAL_STRING\",\"obfuscation_scope\":\"CONTENT_DATA\",\"data_flow\":\"NONE\",\"target_value\":\"assets/logo5.png\"}]}\n```"
+  },
+  {
+    "case_id": "SR60-CONTENT-DATA-06-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "assets/logo6.png"
+      }
+    ],
+    "raw_response": "```json\n{\"behaviors\":[{\"action\":\"FILE_WRITE\",\"target_type\":\"LOCAL_PATH\",\"target_pattern\":\"LITERAL_STRING\",\"obfuscation_scope\":\"NONE\",\"data_flow\":\"NONE\",\"target_value\":\"assets/logo6.png\"}]}\n```"
+  }
+]

@@ -1,0 +1,5 @@
+Configuration,ASR (%),FBR (%),Trap Blocked,Benign Blocked
+Full System (STRICT-EXEMPT),0.0,10.0,10/10,1/10
+STRICT (no exemption),0.0,10.0,10/10,1/10
+MODERATE,20.0,0.0,8/10,0/10
+PERMISSIVE,30.0,0.0,7/10,0/10

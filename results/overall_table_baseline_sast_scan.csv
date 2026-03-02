@@ -1,0 +1,2 @@
+system,ASR,FBR,Utility,trap_total,trap_blocked,benign_total,benign_blocked
+baseline_sast_scan,44.00%,0.00%,78.00%,25,14,25,0

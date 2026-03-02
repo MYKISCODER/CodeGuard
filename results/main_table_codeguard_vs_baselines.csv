@@ -1,0 +1,7 @@
+System,ASR,FBR,Utility,n,Traps_Blocked,Benign_Blocked
+Baseline: LLM Judge (gpt-4o-mini),0.00%,12.00%,94.00%,50,25/25,3/25
+Baseline: SAST Rule Scan,44.00%,0.00%,78.00%,50,14/25,0/25
+CodeGuard Policy-only (STRICT),0.00%,4.00%,98.00%,50,25/25,1/25
+CodeGuard Policy-only (STRICT-EXEMPT),0.00%,0.00%,100.00%,50,25/25,0/25
+CodeGuard Policy-only (MODERATE),8.00%,4.00%,94.00%,50,23/25,1/25
+CodeGuard Policy-only (PERMISSIVE),12.00%,0.00%,94.00%,50,22/25,0/25

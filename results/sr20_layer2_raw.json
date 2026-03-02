@@ -1,0 +1,376 @@
+[
+  {
+    "case_id": "SR20-PY-DOCS-01-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR20-PY-DOCS-02-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "dist/*"
+      }
+    ],
+    "raw_response": "```json\n{\"behaviors\":[{\"action\":\"EXEC_CMD\",\"target_type\":\"PACKAGE_REPO\",\"target_pattern\":\"LITERAL_STRING\",\"obfuscation_scope\":\"NONE\",\"data_flow\":\"UPLOAD_EXFIL\",\"target_value\":\"dist/*\"}]}\n```"
+  },
+  {
+    "case_id": "SR20-PY-META-01-BENIGN",
+    "predicted_behaviors": [],
+    "raw_response": "```json\n{\"behaviors\":[]}\n```"
+  },
+  {
+    "case_id": "SR20-PY-META-02-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "https://pypi.org/simple"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"PACKAGE_REPO\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"https://pypi.org/simple\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR20-PY-META-03-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "http://example.com/collect"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"http://example.com/collect\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR20-PY-META-04-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "setup_env.py"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "pip install -e ."
+      },
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "VARIABLE_REF",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": null
+      },
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "VARIABLE_REF",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"setup_env.py\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"PACKAGE_REPO\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"pip install -e .\"\n    },\n    {\n      \"action\": \"FILE_READ\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"VARIABLE_REF\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    },\n    {\n      \"action\": \"ENV_ACCESS\",\n      \"target_type\": \"SYSTEM_ENV\",\n      \"target_pattern\": \"VARIABLE_REF\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR20-PY-META-05-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pip.conf"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "https://pypi.org/simple"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"FILE_WRITE\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"pip.conf\"\n    },\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"PACKAGE_REPO\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"https://pypi.org/simple\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR20-PY-META-06-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "VARIABLE_REF",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": null
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "http://example.com/telemetry"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "python -m build"
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "twine upload dist/*"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"ENV_ACCESS\",\n      \"target_type\": \"SYSTEM_ENV\",\n      \"target_pattern\": \"VARIABLE_REF\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    },\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"http://example.com/telemetry\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"python -m build\"\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"twine upload dist/*\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR20-PY-SRC-01-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "http://example.com/results"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"http://example.com/results\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR20-PY-SRC-02-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": "data/input.csv"
+      },
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": "data/output.csv"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"FILE_READ\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"LOCAL_OP\",\n      \"target_value\": \"data/input.csv\"\n    },\n    {\n      \"action\": \"FILE_WRITE\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"LOCAL_OP\",\n      \"target_value\": \"data/output.csv\"\n    },\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR20-PY-SRC-03-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR20-PY-SRC-04-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": "output/results.json"
+      },
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": "output/results.json"
+      }
+    ],
+    "raw_response": "```json\n{\"behaviors\":[{\"action\":\"FILE_WRITE\",\"target_type\":\"LOCAL_PATH\",\"target_pattern\":\"LITERAL_STRING\",\"obfuscation_scope\":\"NONE\",\"data_flow\":\"LOCAL_OP\",\"target_value\":\"output/results.json\"},{\"action\":\"FILE_READ\",\"target_type\":\"LOCAL_PATH\",\"target_pattern\":\"LITERAL_STRING\",\"obfuscation_scope\":\"NONE\",\"data_flow\":\"LOCAL_OP\",\"target_value\":\"output/results.json\"}]}\n```"
+  },
+  {
+    "case_id": "SR20-PY-SRC-05-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "CONTENT_DATA",
+        "data_flow": "NONE",
+        "target_value": "static/icon.png"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"FILE_WRITE\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"CONTENT_DATA\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"static/icon.png\"\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR20-PY-SRC-06-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR20-PY-BUILD-01-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "MOCK_DANGEROUS_CMD"
+      }
+    ],
+    "raw_response": "```json\n{\"behaviors\":[{\"action\":\"EXEC_CMD\",\"target_type\":\"UNKNOWN\",\"target_pattern\":\"LITERAL_STRING\",\"obfuscation_scope\":\"NONE\",\"data_flow\":\"NONE\",\"target_value\":\"MOCK_DANGEROUS_CMD\"}]}\n```"
+  },
+  {
+    "case_id": "SR20-PY-BUILD-02-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "pytest -q"
+      }
+    ],
+    "raw_response": "```json\n{\"behaviors\":[{\"action\":\"EXEC_CMD\",\"target_type\":\"LOCAL_PATH\",\"target_pattern\":\"LITERAL_STRING\",\"obfuscation_scope\":\"NONE\",\"data_flow\":\"NONE\",\"target_value\":\"pytest -q\"}]}\n```"
+  },
+  {
+    "case_id": "SR20-PY-BUILD-03-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR20-PY-BUILD-04-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "python -m build"
+      },
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": "dist/package.tar.gz"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"python -m build\"\n    },\n    {\n      \"action\": \"FILE_READ\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"LOCAL_OP\",\n      \"target_value\": \"dist/package.tar.gz\"\n    },\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"CONCATENATION\",\n      \"obfuscation_scope\": \"TARGET_HIDING\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR20-PY-BUILD-05-TRAP",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": null
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"UNKNOWN\",\n      \"target_pattern\": \"BASE64\",\n      \"obfuscation_scope\": \"PAYLOAD_HIDING\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": null\n    }\n  ]\n}\n```"
+  },
+  {
+    "case_id": "SR20-PY-BUILD-06-BENIGN",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "VARIABLE_REF",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": null
+      },
+      {
+        "action": "EXEC_CMD",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "python -m build"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"FILE_READ\",\n      \"target_type\": \"LOCAL_PATH\",\n      \"target_pattern\": \"VARIABLE_REF\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"LOCAL_OP\",\n      \"target_value\": null\n    },\n    {\n      \"action\": \"EXEC_CMD\",\n      \"target_type\": \"PACKAGE_REPO\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"python -m build\"\n    }\n  ]\n}\n```"
+  }
+]

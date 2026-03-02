@@ -1,0 +1,3 @@
+System,Model,API Calls,Input Tokens,Output Tokens,Total Tokens,Est. Cost ($),Est. Latency (s)
+CodeGuard (E2E v4),gpt-4o,20,40000,4000,44000,0.1400,40.0
+LLM Judge,gpt-4o-mini,20,40000,2000,42000,0.0072,30.0
