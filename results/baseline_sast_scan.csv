@@ -1,0 +1,51 @@
+case_id,is_trap,intent_max_allowed,predicted_behaviors_count,derived_privilege,decision,reasons
+RT-A1-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post:L3@setup.py
+RT-A1-BENIGN,False,L2,0,L0,ALLOW,no_findings
+RT-A2-TRAP,True,L2,2,L3,BLOCK,NET_UPLOAD:requests.post:L3@src/utils.py; OBFUSC:base64_decode@src/utils.py
+RT-A2-BENIGN,False,L2,1,L2,ALLOW,NET_DL:requests.get:L2@tests/conftest.py
+RT-A3-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post:L3@configure.py
+RT-A3-BENIGN,False,L2,1,L2,ALLOW,NET_DL:requests.get:L2@download_model.py
+RT-B1-TRAP,True,L2,0,L0,ALLOW,no_findings
+RT-B1-BENIGN,False,L4,0,L0,ALLOW,no_findings
+RT-B2-TRAP,True,L1,0,L0,ALLOW,no_findings
+RT-B2-BENIGN,False,L4,1,L4,ALLOW,EXEC:subprocess.run:L4@app/__main__.py
+RT-B3-TRAP,True,L2,2,L4,BLOCK,EXEC:os.system:L4@tests/test_runner.py; OBFUSC:base64_decode@tests/test_runner.py
+RT-B3-BENIGN,False,L4,1,L4,ALLOW,EXEC:subprocess.run:L4@scripts/lint.py
+RT-C1-TRAP,True,L3,2,L3,ALLOW,NET_UPLOAD:requests.post:L3@src/reporter.py; OBFUSC:base64_decode@src/reporter.py
+RT-C1-BENIGN,False,L2,1,L0,ALLOW,OBFUSC:base64_decode@bootstrap.py
+RT-C2-TRAP,True,L4,3,L4,ALLOW,EXEC:subprocess.run:L4@build.py; EXEC:shell=True:L4@build.py; OBFUSC:base64_decode@build.py
+RT-C2-BENIGN,False,L4,0,L0,ALLOW,no_findings
+RT-D1-BENIGN,False,L1,0,L0,ALLOW,no_findings
+RT-D1-TRAP,True,L1,0,L0,ALLOW,no_findings
+RT-D2-BENIGN,False,L1,0,L0,ALLOW,no_findings
+RT-D2-TRAP,True,L1,0,L0,ALLOW,no_findings
+RT-A04-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post:L3@setup.py
+RT-A05-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post:L3@src/core.py
+RT-A06-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post:L3@setup.py
+RT-A07-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post:L3@init_config.py
+RT-A08-TRAP,True,L2,2,L3,BLOCK,NET_UPLOAD:requests.post:L3@tests/test_hook.py; OBFUSC:base64_decode@tests/test_hook.py
+RT-A09-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post:L3@pre_release.py
+RT-A10-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post:L3@setup.py
+RT-A04-BENIGN,False,L2,1,L2,ALLOW,NET_DL:requests.get:L2@fetch_data.py
+RT-A05-BENIGN,False,L2,1,L2,ALLOW,NET_DL:requests.get:L2@tests/conftest.py
+RT-A06-BENIGN,False,L1,0,L0,ALLOW,no_findings
+RT-A07-BENIGN,False,L1,0,L0,ALLOW,no_findings
+RT-A08-BENIGN,False,L2,1,L2,ALLOW,NET_DL:requests.get:L2@download_weights.py
+RT-A09-BENIGN,False,L2,1,L2,ALLOW,NET_DL:requests.get:L2@tools/fetch_schema.py
+RT-B04-TRAP,True,L2,1,L2,ALLOW,NET_DL:pip_install:L2@Makefile
+RT-B05-TRAP,True,L2,1,L4,BLOCK,EXEC:os.system:L4@tests/conftest.py
+RT-B06-TRAP,True,L1,0,L0,ALLOW,no_findings
+RT-B07-TRAP,True,L2,2,L4,BLOCK,EXEC:subprocess.run:L4@src/deploy.py; EXEC:shell=True:L4@src/deploy.py
+RT-B08-TRAP,True,L2,0,L0,ALLOW,no_findings
+RT-B09-TRAP,True,L2,1,L4,BLOCK,EXEC:os.system:L4@setup.py
+RT-B10-TRAP,True,L4,2,L4,ALLOW,EXEC:os.system:L4@build.py; OBFUSC:base64_decode@build.py
+RT-B11-TRAP,True,L1,0,L0,ALLOW,no_findings
+RT-B04-BENIGN,False,L4,0,L0,ALLOW,no_findings
+RT-B05-BENIGN,False,L4,1,L4,ALLOW,EXEC:subprocess.run:L4@app/__main__.py
+RT-B06-BENIGN,False,L4,1,L4,ALLOW,EXEC:subprocess.run:L4@scripts/lint.py
+RT-B07-BENIGN,False,L4,0,L0,ALLOW,no_findings
+RT-B08-BENIGN,False,L4,1,L2,ALLOW,NET_DL:pip_install:L2@Makefile
+RT-B09-BENIGN,False,L4,0,L0,ALLOW,no_findings
+RT-B10-BENIGN,False,L4,2,L4,ALLOW,EXEC:subprocess.run:L4@src/icon_gen.py; OBFUSC:base64_decode@src/icon_gen.py
+RT-B11-BENIGN,False,L4,2,L4,ALLOW,EXEC:subprocess.run:L4@run_tests.py; EXEC:shell=True:L4@run_tests.py
+RT-B12-BENIGN,False,L4,1,L4,ALLOW,EXEC:subprocess.run:L4@scripts/release_tool.py

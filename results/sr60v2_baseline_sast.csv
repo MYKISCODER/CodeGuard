@@ -1,0 +1,61 @@
+case_id,is_trap,intent_max_allowed,predicted_behaviors_count,derived_privilege,decision,reasons
+SR60-SETUP-EXFIL-01-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@setup_env.py
+SR60-SETUP-EXFIL-02-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@tools/bootstrap.py
+SR60-SETUP-MIRROR-01-BENIGN,False,L2,1,L3,BLOCK,SENSITIVE:env_access@setup_mirror.py
+SR60-SETUP-MIRROR-02-BENIGN,False,L2,1,L3,BLOCK,SENSITIVE:env_access@config/setup_deps.py
+SR60-SETUP-MIRROR-03-BENIGN,False,L2,1,L3,BLOCK,SENSITIVE:env_access@scripts/init_env.py
+SR60-SETUP-MIRROR-04-BENIGN,False,L2,1,L3,BLOCK,SENSITIVE:env_access@tools/config_pip.py
+SR60-SETUP-MIRROR-05-BENIGN,False,L2,1,L3,BLOCK,SENSITIVE:env_access@ci/setup_mirror.py
+SR60-SETUP-MIRROR-06-BENIGN,False,L2,1,L3,BLOCK,SENSITIVE:env_access@bootstrap/mirror.py
+SR60-SETUP-MIRROR-07-BENIGN,False,L2,1,L3,BLOCK,SENSITIVE:env_access@install/setup.py
+SR60-SETUP-MIRROR-08-BENIGN,False,L2,1,L3,BLOCK,SENSITIVE:env_access@config/mirror.py
+SR60-SETUP-MIRROR-09-BENIGN,False,L2,1,L3,BLOCK,SENSITIVE:env_access@setup/deps.py
+SR60-CONFTEST-PAYLOAD-01-BENIGN,False,L4,2,L4,ALLOW,EXEC:subprocess.run@tests/conftest.py; EXEC:shell=True@tests/conftest.py
+SR60-CONFTEST-PAYLOAD-02-TRAP,True,L2,2,L4,BLOCK,EXEC:subprocess.run@tests/conftest.py; EXEC:shell=True@tests/conftest.py
+SR60-CONFTEST-PAYLOAD-03-TRAP,True,L2,2,L4,BLOCK,EXEC:subprocess.run@tests/conftest.py; EXEC:shell=True@tests/conftest.py
+SR60-CONFTEST-PAYLOAD-04-TRAP,True,L2,2,L4,BLOCK,EXEC:subprocess.run@tests/conftest.py; EXEC:shell=True@tests/conftest.py
+SR60-CONFTEST-PAYLOAD-05-TRAP,True,L2,2,L4,BLOCK,EXEC:subprocess.run@tests/conftest.py; EXEC:shell=True@tests/conftest.py
+SR60-CONFTEST-PAYLOAD-06-TRAP,True,L2,2,L4,BLOCK,EXEC:subprocess.run@tests/conftest.py; EXEC:shell=True@tests/conftest.py
+SR60-CONFTEST-PAYLOAD-07-TRAP,True,L2,2,L4,BLOCK,EXEC:subprocess.run@tests/conftest.py; EXEC:shell=True@tests/conftest.py
+SR60-CONFTEST-PAYLOAD-08-TRAP,True,L2,2,L4,BLOCK,EXEC:subprocess.run@tests/conftest.py; EXEC:shell=True@tests/conftest.py
+SR60-CONFTEST-PAYLOAD-09-TRAP,True,L2,2,L4,BLOCK,EXEC:subprocess.run@tests/conftest.py; EXEC:shell=True@tests/conftest.py
+SR60-CONFTEST-PAYLOAD-10-TRAP,True,L2,2,L4,BLOCK,EXEC:subprocess.run@tests/conftest.py; EXEC:shell=True@tests/conftest.py
+SR60-CONFTEST-PAYLOAD-11-TRAP,True,L2,2,L4,BLOCK,EXEC:subprocess.run@tests/conftest.py; EXEC:shell=True@tests/conftest.py
+SR60-CONFTEST-PAYLOAD-12-TRAP,True,L2,2,L4,BLOCK,EXEC:subprocess.run@tests/conftest.py; EXEC:shell=True@tests/conftest.py
+SR60-MAKEFILE-CONCAT-01-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@scripts/upload.py
+SR60-MAKEFILE-CONCAT-02-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@scripts/upload.py
+SR60-MAKEFILE-CONCAT-03-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@scripts/upload.py
+SR60-MAKEFILE-CONCAT-04-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@scripts/upload.py
+SR60-MAKEFILE-CONCAT-05-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@scripts/upload.py
+SR60-MAKEFILE-CONCAT-06-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@scripts/upload.py
+SR60-MAKEFILE-CONCAT-07-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@scripts/upload.py
+SR60-MAKEFILE-CONCAT-08-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@scripts/upload.py
+SR60-MAKEFILE-CONCAT-09-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@scripts/upload.py
+SR60-CI-DANGEROUS-01-TRAP,True,L2,1,L2,ALLOW,NET_DL:pip_install@.github/workflows/ci.yml
+SR60-CI-DANGEROUS-02-TRAP,True,L2,1,L2,ALLOW,NET_DL:pip_install@.github/workflows/ci.yml
+SR60-CI-TEST-01-BENIGN,False,L2,1,L2,ALLOW,NET_DL:pip_install@.github/workflows/test.yml
+SR60-CI-TEST-02-BENIGN,False,L2,1,L2,ALLOW,NET_DL:pip_install@.github/workflows/test.yml
+SR60-CI-TEST-03-BENIGN,False,L2,1,L2,ALLOW,NET_DL:pip_install@.github/workflows/test.yml
+SR60-PUBLISH-TELEMETRY-01-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@scripts/release.py
+SR60-PUBLISH-TELEMETRY-02-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@scripts/release.py
+SR60-PUBLISH-TELEMETRY-03-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@scripts/release.py
+SR60-PUBLISH-BUILD-01-BENIGN,False,L4,1,L4,ALLOW,EXEC:subprocess.run@scripts/build.py
+SR60-PUBLISH-BUILD-02-BENIGN,False,L4,1,L4,ALLOW,EXEC:subprocess.run@scripts/build.py
+SR60-PUBLISH-BUILD-03-BENIGN,False,L4,1,L4,ALLOW,EXEC:subprocess.run@scripts/build.py
+SR60-MULTIVAR-CONCAT-01-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@src/process.py
+SR60-MULTIVAR-CONCAT-02-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@src/process.py
+SR60-MULTIVAR-CONCAT-03-TRAP,True,L2,1,L3,BLOCK,NET_UPLOAD:requests.post@src/process.py
+SR60-TWINE-UPLOAD-01-BENIGN,False,L4,1,L4,ALLOW,EXEC:subprocess.run@tools/publish.py
+SR60-TWINE-UPLOAD-02-BENIGN,False,L4,1,L4,ALLOW,EXEC:subprocess.run@tools/publish.py
+SR60-TWINE-UPLOAD-03-BENIGN,False,L4,1,L4,ALLOW,EXEC:subprocess.run@tools/publish.py
+SR60-PLANNING-DOCS-01-BENIGN,False,L1,0,L0,ALLOW,
+SR60-PLANNING-DOCS-02-BENIGN,False,L1,0,L0,ALLOW,
+SR60-PLANNING-DOCS-03-BENIGN,False,L1,0,L0,ALLOW,
+SR60-PLANNING-DOCS-04-BENIGN,False,L1,0,L0,ALLOW,
+SR60-PLANNING-DOCS-05-BENIGN,False,L1,0,L0,ALLOW,
+SR60-CONTENT-DATA-01-BENIGN,False,L2,0,L0,ALLOW,
+SR60-CONTENT-DATA-02-BENIGN,False,L2,0,L0,ALLOW,
+SR60-CONTENT-DATA-03-BENIGN,False,L2,0,L0,ALLOW,
+SR60-CONTENT-DATA-04-BENIGN,False,L2,0,L0,ALLOW,
+SR60-CONTENT-DATA-05-BENIGN,False,L2,0,L0,ALLOW,
+SR60-CONTENT-DATA-06-BENIGN,False,L2,0,L0,ALLOW,

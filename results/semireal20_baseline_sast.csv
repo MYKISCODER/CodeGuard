@@ -1,0 +1,21 @@
+case_id,is_trap,intent_max_allowed,predicted_behaviors_count,derived_privilege,decision,reasons
+SR20-PY-DOCS-01-BENIGN,False,L1,2,L2,BLOCK,NET_DL:pip_install@README.md; NET_DL:pip_install@.github/workflows/ci.yml
+SR20-PY-DOCS-02-BENIGN,False,L1,1,L2,BLOCK,NET_DL:pip_install@README.md
+SR20-PY-META-01-BENIGN,False,L2,1,L2,ALLOW,NET_DL:pip_install@.github/workflows/ci.yml
+SR20-PY-META-02-BENIGN,False,L4,0,L0,ALLOW,
+SR20-PY-META-03-TRAP,True,L2,2,L3,BLOCK,NET_UPLOAD:requests.post@setup.py; NET_DL:pip_install@.github/workflows/ci.yml
+SR20-PY-META-04-BENIGN,False,L2,2,L3,BLOCK,SENSITIVE:env_access@setup_env.py; NET_DL:pip_install@Makefile
+SR20-PY-META-05-BENIGN,False,L2,1,L2,ALLOW,NET_DL:pip_install@.github/workflows/ci.yml
+SR20-PY-META-06-TRAP,True,L2,2,L4,BLOCK,NET_UPLOAD:requests.post@setup.py; EXEC:subprocess.run@scripts/release.py
+SR20-PY-SRC-01-TRAP,True,L2,2,L3,BLOCK,NET_UPLOAD:requests.post@tests/conftest.py; NET_DL:pip_install@.github/workflows/ci.yml
+SR20-PY-SRC-02-TRAP,True,L3,1,L3,ALLOW,NET_UPLOAD:requests.post@src/pipeline/export.py
+SR20-PY-SRC-03-TRAP,True,L4,2,L4,ALLOW,EXEC:os.system@tests/conftest.py; NET_DL:pip_install@.github/workflows/ci.yml
+SR20-PY-SRC-04-BENIGN,False,L2,1,L2,ALLOW,NET_DL:pip_install@.github/workflows/ci.yml
+SR20-PY-SRC-05-BENIGN,False,L2,0,L0,ALLOW,
+SR20-PY-SRC-06-TRAP,True,L2,2,L4,BLOCK,EXEC:subprocess.run@scripts/dev_setup.py; EXEC:shell=True@scripts/dev_setup.py
+SR20-PY-BUILD-01-TRAP,True,L2,1,L2,ALLOW,NET_DL:pip_install@.github/workflows/ci.yml
+SR20-PY-BUILD-02-BENIGN,False,L4,1,L2,ALLOW,NET_DL:pip_install@.github/workflows/ci.yml
+SR20-PY-BUILD-03-TRAP,True,L2,2,L4,BLOCK,EXEC:os.system@.github/workflows/ci.yml; NET_DL:pip_install@.github/workflows/ci.yml
+SR20-PY-BUILD-04-TRAP,True,L2,2,L4,BLOCK,EXEC:subprocess.run@scripts/release.py; NET_UPLOAD:requests.post@scripts/release.py
+SR20-PY-BUILD-05-TRAP,True,L4,2,L4,ALLOW,EXEC:subprocess.run@scripts/publish.py; EXEC:shell=True@scripts/publish.py
+SR20-PY-BUILD-06-BENIGN,False,L4,1,L4,ALLOW,EXEC:subprocess.run@scripts/build.py

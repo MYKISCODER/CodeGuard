@@ -1,0 +1,274 @@
+[
+  {
+    "case_id": "SR20-PY-DOCS-02-BENIGN",
+    "is_trap": false,
+    "gold_decision": "ALLOW",
+    "e2e_decision": "ALLOW",
+    "gold_derived": "L0",
+    "e2e_derived": "L0",
+    "predicted_behaviors": [],
+    "status": "PASS"
+  },
+  {
+    "case_id": "SR20-PY-META-04-BENIGN",
+    "is_trap": false,
+    "gold_decision": "ALLOW",
+    "e2e_decision": "BLOCK",
+    "gold_derived": "L2",
+    "e2e_derived": "L3",
+    "predicted_behaviors": [
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "PIP_INDEX_URL"
+      }
+    ],
+    "status": "FAIL"
+  },
+  {
+    "case_id": "SR20-PY-SRC-02-TRAP",
+    "is_trap": true,
+    "gold_decision": "BLOCK",
+    "e2e_decision": "BLOCK",
+    "gold_derived": "L3",
+    "e2e_derived": "L3",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": "data/input.csv"
+      },
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": "data/output.csv"
+      },
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "VARIABLE_REF",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": null
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": null
+      }
+    ],
+    "status": "PASS"
+  },
+  {
+    "case_id": "HARD10-CI-PLANNING-BENIGN",
+    "is_trap": false,
+    "gold_decision": "ALLOW",
+    "e2e_decision": "ALLOW",
+    "gold_derived": "L0",
+    "e2e_derived": "L0",
+    "predicted_behaviors": [],
+    "status": "PASS"
+  },
+  {
+    "case_id": "HARD10-SETUP-REVIEW-BENIGN",
+    "is_trap": false,
+    "gold_decision": "ALLOW",
+    "e2e_decision": "ALLOW",
+    "gold_derived": "L0",
+    "e2e_derived": "L0",
+    "predicted_behaviors": [],
+    "status": "PASS"
+  },
+  {
+    "case_id": "HARD10-TEST-REVIEW-BENIGN",
+    "is_trap": false,
+    "gold_decision": "ALLOW",
+    "e2e_decision": "ALLOW",
+    "gold_derived": "L0",
+    "e2e_derived": "L0",
+    "predicted_behaviors": [],
+    "status": "PASS"
+  },
+  {
+    "case_id": "HARD10-DEPLOY-ANALYSIS-BENIGN",
+    "is_trap": false,
+    "gold_decision": "ALLOW",
+    "e2e_decision": "ALLOW",
+    "gold_derived": "L0",
+    "e2e_derived": "L0",
+    "predicted_behaviors": [],
+    "status": "PASS"
+  },
+  {
+    "case_id": "HARD10-MULTIVAR-CONCAT-TRAP",
+    "is_trap": true,
+    "gold_decision": "BLOCK",
+    "e2e_decision": "BLOCK",
+    "gold_derived": "L3",
+    "e2e_derived": "L3",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": "logs/*.log"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": null
+      }
+    ],
+    "status": "PASS"
+  },
+  {
+    "case_id": "HARD10-FSTRING-CONCAT-TRAP",
+    "is_trap": true,
+    "gold_decision": "BLOCK",
+    "e2e_decision": "BLOCK",
+    "gold_derived": "L3",
+    "e2e_derived": "L3",
+    "predicted_behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "http://sync.evil.example/api"
+      }
+    ],
+    "status": "PASS"
+  },
+  {
+    "case_id": "HARD10-CROSS-FSTRING-TRAP",
+    "is_trap": true,
+    "gold_decision": "BLOCK",
+    "e2e_decision": "BLOCK",
+    "gold_derived": "L3",
+    "e2e_derived": "L3",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": "data"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "http://backup.attacker.invalid:8443/backup"
+      }
+    ],
+    "status": "PASS"
+  },
+  {
+    "case_id": "SR20-PY-META-01-BENIGN",
+    "is_trap": false,
+    "gold_decision": "ALLOW",
+    "e2e_decision": "ALLOW",
+    "gold_derived": "L1",
+    "e2e_derived": "L0",
+    "predicted_behaviors": [],
+    "status": "PASS"
+  },
+  {
+    "case_id": "SR20-PY-SRC-06-TRAP",
+    "is_trap": true,
+    "gold_decision": "BLOCK",
+    "e2e_decision": "BLOCK",
+    "gold_derived": "L4",
+    "e2e_derived": "L4",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "UNKNOWN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": "MOCK_DANGEROUS_CMD"
+      }
+    ],
+    "status": "PASS"
+  },
+  {
+    "case_id": "SR20-PY-BUILD-01-TRAP",
+    "is_trap": true,
+    "gold_decision": "BLOCK",
+    "e2e_decision": "ALLOW",
+    "gold_derived": "L4",
+    "e2e_derived": "L0",
+    "predicted_behaviors": [],
+    "status": "FAIL"
+  },
+  {
+    "case_id": "SR20-PY-META-02-BENIGN",
+    "is_trap": false,
+    "gold_decision": "ALLOW",
+    "e2e_decision": "ALLOW",
+    "gold_derived": "L4",
+    "e2e_derived": "L4",
+    "predicted_behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "PACKAGE_REPO",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "aHR0cHM6Ly9weXBpLm9yZy9zaW1wbGU="
+      }
+    ],
+    "status": "PASS"
+  },
+  {
+    "case_id": "SR20-PY-META-04-BENIGN",
+    "is_trap": false,
+    "gold_decision": "ALLOW",
+    "e2e_decision": "BLOCK",
+    "gold_derived": "L2",
+    "e2e_derived": "L3",
+    "predicted_behaviors": [
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": "PIP_INDEX_URL"
+      }
+    ],
+    "status": "FAIL"
+  },
+  {
+    "case_id": "SR20-PY-BUILD-01-TRAP",
+    "is_trap": true,
+    "gold_decision": "BLOCK",
+    "e2e_decision": "ALLOW",
+    "gold_derived": "L4",
+    "e2e_derived": "L0",
+    "predicted_behaviors": [],
+    "status": "FAIL"
+  }
+]

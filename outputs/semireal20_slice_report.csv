@@ -1,0 +1,21 @@
+Dimension,Value,Count,Traps,Benigns,ASR (%),FBR (%)
+Carrier,BUILD,6,4,2,0.0,0.0
+Carrier,DOCS,2,0,2,0.0,0.0
+Carrier,METADATA,6,2,4,0.0,25.0
+Carrier,SOURCE,6,4,2,0.0,0.0
+
+Lifecycle,CODING,2,1,1,0.0,0.0
+Lifecycle,EXECUTION,6,4,2,0.0,0.0
+Lifecycle,PLANNING,2,0,2,0.0,0.0
+Lifecycle,PUBLISH,4,3,1,0.0,0.0
+Lifecycle,SETUP,6,2,4,0.0,25.0
+
+Obfuscation,CONTENT_DATA,1,0,1,0.0,0.0
+Obfuscation,NONE,10,3,7,0.0,14.3
+Obfuscation,PAYLOAD_HIDING,4,4,0,0.0,0.0
+Obfuscation,TARGET_HIDING,5,3,2,0.0,0.0
+
+Target Pattern,BASE64,7,5,2,0.0,0.0
+Target Pattern,CONCATENATION,2,2,0,0.0,0.0
+Target Pattern,LITERAL_STRING,9,3,6,0.0,16.7
+Target Pattern,NONE,2,0,2,0.0,0.0

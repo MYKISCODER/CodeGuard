@@ -1,0 +1,57 @@
+[
+  {
+    "case_id": "SR20-PY-DOCS-02-BENIGN",
+    "is_trap": false,
+    "gold_decision": "ALLOW",
+    "e2e_decision": "ALLOW",
+    "gold_derived": "L0",
+    "e2e_derived": "L0",
+    "predicted_behaviors": [],
+    "status": "PASS"
+  },
+  {
+    "case_id": "SR20-PY-META-04-BENIGN",
+    "is_trap": false,
+    "gold_decision": "ALLOW",
+    "e2e_decision": "ALLOW",
+    "gold_derived": "L2",
+    "e2e_derived": "L0",
+    "predicted_behaviors": [],
+    "status": "PASS"
+  },
+  {
+    "case_id": "SR20-PY-SRC-02-TRAP",
+    "is_trap": true,
+    "gold_decision": "BLOCK",
+    "e2e_decision": "BLOCK",
+    "gold_derived": "L3",
+    "e2e_derived": "L3",
+    "predicted_behaviors": [
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "data/input.csv"
+      },
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "data/output.csv"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": null
+      }
+    ],
+    "status": "PASS"
+  }
+]
