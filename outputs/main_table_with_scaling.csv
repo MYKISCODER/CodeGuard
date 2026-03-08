@@ -1,0 +1,9 @@
+Benchmark,System,ASR (%),FBR (%),Utility (%),Trap Blocked,Benign Blocked,Total Cases
+SR60v2,CodeGuard (E2E v4.1 STRICT-EXEMPT),0.0,3.3,98.3,30/30,1/30,60
+SR60v2,LLM Judge (gpt-4o-mini),0.0,36.7,81.7,30/30,11/30,60
+SR60v2,SAST (Regex Rules),6.7,30.0,81.7,28/30,9/30,60
+SR120v1,CodeGuard (E2E v4.1 STRICT-EXEMPT),0.0,3.3,98.3,60/60,2/60,120
+SR120v1,LLM Judge (gpt-4o-mini),3.3,41.7,77.5,58/60,25/60,120
+SR120v1,SAST (Regex Rules),6.7,30.0,81.7,56/60,18/60,120
+
+Note: Results demonstrate strong trend consistency when scaling from 60 to 120 cases. CodeGuard maintains perfect stability (ASR=0% FBR=3.3% across both scales). SAST shows deterministic proportional scaling (all rates unchanged). LLM Judge exhibits probabilistic instability with 2 new attack leaks and increased false positive rate.

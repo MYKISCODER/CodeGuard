@@ -1,0 +1,2 @@
+model,asr_min,asr_max,asr_mean,asr_std,fbr_min,fbr_max,fbr_mean,fbr_std,utility_min,utility_max,utility_mean,utility_std
+gpt-4o-mini,0.0,5.0,1.8333333333333335,2.29128784747792,8.333333333333332,100.0,52.0,32.401988965014,50.0,93.33333333333333,73.08333333333334,15.184284639060213

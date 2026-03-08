@@ -1,0 +1,13 @@
+
+## Ablation Study Insights
+
+Each mechanism contributes to the final performance:
+
+1. **CI mapping (scenario 1/2)**: Distinguishes "understanding CI tests" from "executing CI".
+   Removing it increases FBR from 3.3% to 13.3% (3 CI-TEST cases misclassified).
+
+2. **ENV_ACCESS read/write distinction**: Prevents false positives on environment variable assignments.
+   Removing it increases FBR by ~3.3% (1 SETUP-MIRROR case misclassified).
+
+3. **Combined removal**: Both mechanisms are necessary. Without them, FBR reaches 16.7% while
+   maintaining ASR=0%, showing they improve usability without compromising security.
