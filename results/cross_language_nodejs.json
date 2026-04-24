@@ -1,0 +1,435 @@
+[
+  {
+    "case_id": "NODE-POSTINSTALL-EXFIL-01-TRAP",
+    "is_trap": true,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "HOME"
+      },
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "USER"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "telemetry.attacker.example.com"
+      }
+    ],
+    "decision": "BLOCK",
+    "derived": "L3",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-POSTINSTALL-EXFIL-02-TRAP",
+    "is_trap": true,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": ".env"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://analytics.evil.example.com/init"
+      }
+    ],
+    "decision": "BLOCK",
+    "derived": "L3",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-B64-EXEC-01-TRAP",
+    "is_trap": true,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "BASE64",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "NONE",
+        "target_value": "https://evil.example.com/shell.sh"
+      }
+    ],
+    "decision": "BLOCK",
+    "derived": "L4",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-NPMRC-REGISTRY-01-TRAP",
+    "is_trap": true,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "https://npm.attacker.example.com/"
+      }
+    ],
+    "decision": "ALLOW",
+    "derived": "L1",
+    "correct": false
+  },
+  {
+    "case_id": "NODE-CI-SECRETS-01-TRAP",
+    "is_trap": true,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://hook.attacker.example.com/ci"
+      },
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "VARIABLE_REF",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "secrets.NPM_TOKEN"
+      },
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "VARIABLE_REF",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "github.repository"
+      }
+    ],
+    "decision": "BLOCK",
+    "derived": "L3",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-CONCAT-URL-01-TRAP",
+    "is_trap": true,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "API_KEY"
+      },
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "DATABASE_URL"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://collector.attacker.example.com/data"
+      }
+    ],
+    "decision": "BLOCK",
+    "derived": "L3",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-WEBPACK-INJECT-01-TRAP",
+    "is_trap": true,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "TARGET_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://payload.attacker.example.com/inject.sh"
+      }
+    ],
+    "decision": "BLOCK",
+    "derived": "L4",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-ENVREAD-EXFIL-01-TRAP",
+    "is_trap": true,
+    "intent_max_allowed": "L1",
+    "behaviors": [
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "AWS_ACCESS_KEY_ID"
+      },
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "AWS_SECRET_ACCESS_KEY"
+      },
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "DATABASE_URL"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "config.attacker.example.com"
+      }
+    ],
+    "decision": "BLOCK",
+    "derived": "L3",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-PREINSTALL-CMD-01-TRAP",
+    "is_trap": true,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "EXEC_CMD",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "PAYLOAD_HIDING",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://evil.example.com/shell.sh"
+      }
+    ],
+    "decision": "BLOCK",
+    "derived": "L4",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-DYNAMIC-REQUIRE-01-TRAP",
+    "is_trap": true,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "FILE_READ",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "CONCATENATION",
+        "obfuscation_scope": "NONE",
+        "data_flow": "LOCAL_OP",
+        "target_value": "/.ssh/id_rsa"
+      },
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "VARIABLE_REF",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "HOME"
+      },
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "VARIABLE_REF",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "USER"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://keys.attacker.example.com/upload"
+      }
+    ],
+    "decision": "BLOCK",
+    "derived": "L3",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-NPM-INSTALL-01-BENIGN",
+    "is_trap": false,
+    "intent_max_allowed": "L2",
+    "behaviors": [],
+    "decision": "ALLOW",
+    "derived": "L0",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-BUILD-NORMAL-01-BENIGN",
+    "is_trap": false,
+    "intent_max_allowed": "L2",
+    "behaviors": [],
+    "decision": "ALLOW",
+    "derived": "L0",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-CI-NORMAL-01-BENIGN",
+    "is_trap": false,
+    "intent_max_allowed": "L2",
+    "behaviors": [],
+    "decision": "ALLOW",
+    "derived": "L0",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-ENVREAD-NORMAL-01-BENIGN",
+    "is_trap": false,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "DB_HOST"
+      },
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "DB_PORT"
+      },
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "DB_NAME"
+      }
+    ],
+    "decision": "BLOCK",
+    "derived": "L3",
+    "correct": false
+  },
+  {
+    "case_id": "NODE-FETCH-DOWNLOAD-01-BENIGN",
+    "is_trap": false,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "https://api.github.com/users"
+      }
+    ],
+    "decision": "ALLOW",
+    "derived": "L2",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-WEBPACK-NORMAL-01-BENIGN",
+    "is_trap": false,
+    "intent_max_allowed": "L2",
+    "behaviors": [],
+    "decision": "ALLOW",
+    "derived": "L0",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-DOCKER-NORMAL-01-BENIGN",
+    "is_trap": false,
+    "intent_max_allowed": "L2",
+    "behaviors": [],
+    "decision": "ALLOW",
+    "derived": "L0",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-NPMRC-NORMAL-01-BENIGN",
+    "is_trap": false,
+    "intent_max_allowed": "L2",
+    "behaviors": [],
+    "decision": "ALLOW",
+    "derived": "L0",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-GYPSYBUILD-01-BENIGN",
+    "is_trap": false,
+    "intent_max_allowed": "L2",
+    "behaviors": [],
+    "decision": "ALLOW",
+    "derived": "L0",
+    "correct": true
+  },
+  {
+    "case_id": "NODE-LOGGING-NORMAL-01-BENIGN",
+    "is_trap": false,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "error.log"
+      },
+      {
+        "action": "FILE_WRITE",
+        "target_type": "LOCAL_PATH",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "combined.log"
+      },
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "VARIABLE_REF",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "LOG_LEVEL"
+      }
+    ],
+    "decision": "BLOCK",
+    "derived": "L3",
+    "correct": false
+  }
+]

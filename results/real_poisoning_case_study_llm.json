@@ -1,0 +1,101 @@
+[
+  {
+    "case_id": "REAL-EVENTSTREAM-EXFIL",
+    "title": "Event-Stream Style: Postinstall Data Exfiltration",
+    "description": "Modeled after the 2018 event-stream incident. setup.py postinstall hook reads environment credentials and uploads them to attacker server.",
+    "is_trap": true,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "AWS_SECRET_ACCESS_KEY"
+      },
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "DATABASE_URL"
+      },
+      {
+        "action": "ENV_ACCESS",
+        "target_type": "SYSTEM_ENV",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "NONE",
+        "target_value": "API_TOKEN"
+      },
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://telemetry.attacker.example.com/collect"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"ENV_ACCESS\",\n      \"target_type\": \"SYSTEM_ENV\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"AWS_SECRET_ACCESS_KEY\"\n    },\n    {\n      \"action\": \"ENV_ACCESS\",\n      \"target_type\": \"SYSTEM_ENV\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"DATABASE_URL\"\n    },\n    {\n      \"action\": \"ENV_ACCESS\",\n      \"target_type\": \"SYSTEM_ENV\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"NONE\",\n      \"target_value\": \"API_TOKEN\"\n    },\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"https://telemetry.attacker.example.com/collect\"\n    }\n  ]\n}\n```",
+    "decision": "BLOCK",
+    "derived_privilege": "L3",
+    "audit_trail": [
+      "base=L3(R6); derived=L3 vs intent=L2->BLOCK",
+      "base=L3(R6); derived=L3 vs intent=L2->BLOCK",
+      "base=L3(R6); derived=L3 vs intent=L2->BLOCK",
+      "base=L3(R1); derived=L3 vs intent=L2->BLOCK"
+    ],
+    "correct": true
+  },
+  {
+    "case_id": "REAL-DEPCONFUSION-REGISTRY",
+    "title": "Dependency Confusion: Malicious Private Registry",
+    "description": "Modeled after Birsan 2021. requirements.txt uses --extra-index-url pointing to attacker-controlled registry to shadow internal packages.",
+    "is_trap": true,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "https://pypi.attacker.example.com/simple/"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"DOWNLOAD_ONLY\",\n      \"target_value\": \"https://pypi.attacker.example.com/simple/\"\n    }\n  ]\n}\n```",
+    "decision": "ALLOW",
+    "derived_privilege": "L2",
+    "audit_trail": [
+      "base=L2(R2b); derived=L2 vs intent=L2->ALLOW"
+    ],
+    "correct": false
+  },
+  {
+    "case_id": "REAL-CIPIPELINE-SECRETS",
+    "title": "CI Pipeline Injection: Secrets Exfiltration via curl",
+    "description": "Modeled after CI/CD pipeline attacks. GitHub Actions workflow exfiltrates GITHUB_TOKEN and repo info to external server via curl.",
+    "is_trap": true,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "https://collector.attacker.example.com/gh"
+      }
+    ],
+    "raw_response": "```json\n{\n  \"behaviors\": [\n    {\n      \"action\": \"NETWORK_CONNECT\",\n      \"target_type\": \"EXTERNAL_DOMAIN\",\n      \"target_pattern\": \"LITERAL_STRING\",\n      \"obfuscation_scope\": \"NONE\",\n      \"data_flow\": \"UPLOAD_EXFIL\",\n      \"target_value\": \"https://collector.attacker.example.com/gh\"\n    }\n  ]\n}\n```",
+    "decision": "BLOCK",
+    "derived_privilege": "L3",
+    "audit_trail": [
+      "base=L3(R1); derived=L3 vs intent=L2->BLOCK"
+    ],
+    "correct": true
+  }
+]

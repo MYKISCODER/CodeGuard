@@ -179,6 +179,37 @@ def arbitrate_behavior(behavior, intent_max_allowed, mode="STRICT"):
     }
 
 
+# ── Schema Normalization (spec §4.2b) ─────────────────────────────
+def normalize_behaviors(behaviors):
+    """
+    Normalize Layer 2 output before policy arbitration.
+
+    If a single behavior carries both action=EXEC_CMD and
+    data_flow=UPLOAD_EXFIL, split it into two atomic behaviors:
+      1. EXEC_CMD with data_flow=NONE  (command execution fact)
+      2. NETWORK_CONNECT with data_flow=UPLOAD_EXFIL (exfiltration fact)
+
+    This enforces the Frozen Schema contract that each behavior
+    represents exactly one atomic side effect.
+    """
+    normalized = []
+    for b in behaviors:
+        if (b.get("action") == "EXEC_CMD"
+                and b.get("data_flow") == "UPLOAD_EXFIL"):
+            # Split into two atomic behaviors
+            exec_behavior = dict(b)
+            exec_behavior["data_flow"] = "NONE"
+
+            exfil_behavior = dict(b)
+            exfil_behavior["action"] = "NETWORK_CONNECT"
+
+            normalized.append(exec_behavior)
+            normalized.append(exfil_behavior)
+        else:
+            normalized.append(b)
+    return normalized
+
+
 # ── Case-level arbitration (OR rule) ──────────────────────────────
 def arbitrate_case(behaviors, intent_max_allowed, mode="STRICT"):
     """
@@ -188,6 +219,7 @@ def arbitrate_case(behaviors, intent_max_allowed, mode="STRICT"):
     if not behaviors:
         return {"decision": "ALLOW", "derived": "L0", "reasons": ["no behaviors"]}
 
+    behaviors = normalize_behaviors(behaviors)
     results = [arbitrate_behavior(b, intent_max_allowed, mode) for b in behaviors]
 
     case_decision = "BLOCK" if any(r["decision"] == "BLOCK" for r in results) else "ALLOW"

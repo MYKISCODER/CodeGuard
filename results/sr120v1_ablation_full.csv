@@ -1,0 +1,8 @@
+variant,asr,fbr,utility,trap_leaked,benign_blocked
+Full System (STRICT-EXEMPT),0.0%,3.3%,98.3%,0,2
+No Schema Normalization,0.0%,3.3%,98.3%,0,2
+No CI Mapping,0.0%,6.7%,96.7%,0,4
+No ENV Distinction,0.0%,3.3%,98.3%,0,2
+No Allowlist (STRICT),0.0%,3.3%,98.3%,0,2
+No Obfusc. Penalty (PERMISSIVE),0.0%,0.0%,100.0%,0,0
+MODERATE mode,0.0%,0.0%,100.0%,0,0

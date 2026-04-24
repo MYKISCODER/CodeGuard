@@ -14,6 +14,8 @@ __pycache__/
 
 # 环境变量
 .env
+.env.*
+*.env
 
 # IDE
 .vscode/
@@ -22,3 +24,40 @@ __pycache__/
 # 操作系统
 .DS_Store
 Thumbs.db
+
+# 中间实验结果（过程文件，非论文核心数据）
+results/sr20*
+results/e2e_*
+results/gold_*
+results/full_*
+results/layer2_raw.json
+results/layer2_raw_v2.json
+results/hard*
+results/baseline_*
+results/overall_*
+results/slice_*
+results/llm_judge_instability*
+results/sr60v2_e2e_v4_moderate.csv
+results/sr60v2_e2e_v4_permissive.csv
+results/sr60v2_e2e_v4_strict.csv
+results/sr60v2_e2e_v4_strict_exempt.csv
+results/sr60v2_gold_vs_e2e_v4_diff.csv
+results/sr60v2_layer2_v4_raw.json
+
+# 开发过程中的临时benchmark
+benchmark/semireal_hard*.yaml
+benchmark/semireal_60.yaml
+benchmark/semireal_60_template.yaml
+benchmark/semi_real_20.yaml
+benchmark/semi_real_20_v2.yaml
+benchmark/full_e2e.yaml
+
+# 过程报告（task completion reports）
+outputs/task*.md
+outputs/task*.txt
+outputs/variant_failure*.md
+outputs/semireal20_remaining_issues*
+outputs/semireal60v2_execution_fbr_debug.md
+
+# NeurIPS样式文件（不属于代码）
+neurips_2026.sty

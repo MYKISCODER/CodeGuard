@@ -1,0 +1,121 @@
+case_id,is_trap,intent_max_allowed,predicted_behaviors_count,derived_privilege,decision,reasons
+SR60-SETUP-EXFIL-01-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-SETUP-EXFIL-01-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-SETUP-EXFIL-02-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-SETUP-EXFIL-02-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-SETUP-MIRROR-01-BENIGN,False,L2,0,L0,ALLOW,
+SR120-SETUP-MIRROR-01-V2-BENIGN,False,L2,0,L0,ALLOW,
+SR60-SETUP-MIRROR-02-BENIGN,False,L2,0,L0,ALLOW,
+SR120-SETUP-MIRROR-02-V2-BENIGN,False,L2,0,L0,ALLOW,
+SR60-SETUP-MIRROR-03-BENIGN,False,L2,0,L0,ALLOW,
+SR120-SETUP-MIRROR-03-V2-BENIGN,False,L2,0,L0,ALLOW,
+SR60-SETUP-MIRROR-04-BENIGN,False,L2,0,L0,ALLOW,
+SR120-SETUP-MIRROR-04-V2-BENIGN,False,L2,0,L0,ALLOW,
+SR60-SETUP-MIRROR-05-BENIGN,False,L2,0,L0,ALLOW,
+SR120-SETUP-MIRROR-05-V2-BENIGN,False,L2,0,L0,ALLOW,
+SR60-SETUP-MIRROR-06-BENIGN,False,L2,0,L0,ALLOW,
+SR120-SETUP-MIRROR-06-V2-BENIGN,False,L2,0,L0,ALLOW,
+SR60-SETUP-MIRROR-07-BENIGN,False,L2,0,L0,ALLOW,
+SR120-SETUP-MIRROR-07-V2-BENIGN,False,L2,0,L0,ALLOW,
+SR60-SETUP-MIRROR-08-BENIGN,False,L2,0,L0,ALLOW,
+SR120-SETUP-MIRROR-08-V2-BENIGN,False,L2,0,L0,ALLOW,
+SR60-SETUP-MIRROR-09-BENIGN,False,L2,0,L0,ALLOW,
+SR120-SETUP-MIRROR-09-V2-BENIGN,False,L2,0,L0,ALLOW,
+SR60-CONFTEST-PAYLOAD-01-BENIGN,False,L4,3,L4,ALLOW,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR120-CONFTEST-PAYLOAD-01-V2-BENIGN,False,L4,3,L4,ALLOW,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR60-CONFTEST-PAYLOAD-02-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR120-CONFTEST-PAYLOAD-02-V2-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR60-CONFTEST-PAYLOAD-03-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR120-CONFTEST-PAYLOAD-03-V2-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR60-CONFTEST-PAYLOAD-04-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR120-CONFTEST-PAYLOAD-04-V2-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR60-CONFTEST-PAYLOAD-05-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR120-CONFTEST-PAYLOAD-05-V2-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR60-CONFTEST-PAYLOAD-06-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR120-CONFTEST-PAYLOAD-06-V2-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR60-CONFTEST-PAYLOAD-07-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR120-CONFTEST-PAYLOAD-07-V2-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR60-CONFTEST-PAYLOAD-08-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR120-CONFTEST-PAYLOAD-08-V2-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR60-CONFTEST-PAYLOAD-09-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR120-CONFTEST-PAYLOAD-09-V2-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR60-CONFTEST-PAYLOAD-10-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR120-CONFTEST-PAYLOAD-10-V2-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR60-CONFTEST-PAYLOAD-11-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR120-CONFTEST-PAYLOAD-11-V2-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR60-CONFTEST-PAYLOAD-12-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR120-CONFTEST-PAYLOAD-12-V2-TRAP,True,L2,3,L4,BLOCK,B:B404(blacklist)=L1; B:B602(subprocess_popen_with_shell_equals_true)=L4; B:B101(assert_used)=L1
+SR60-MAKEFILE-CONCAT-01-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-MAKEFILE-CONCAT-01-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-MAKEFILE-CONCAT-02-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-MAKEFILE-CONCAT-02-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-MAKEFILE-CONCAT-03-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-MAKEFILE-CONCAT-03-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-MAKEFILE-CONCAT-04-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-MAKEFILE-CONCAT-04-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-MAKEFILE-CONCAT-05-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-MAKEFILE-CONCAT-05-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-MAKEFILE-CONCAT-06-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-MAKEFILE-CONCAT-06-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-MAKEFILE-CONCAT-07-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-MAKEFILE-CONCAT-07-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-MAKEFILE-CONCAT-08-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-MAKEFILE-CONCAT-08-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-MAKEFILE-CONCAT-09-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-MAKEFILE-CONCAT-09-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-CI-DANGEROUS-01-TRAP,True,L2,0,L0,ALLOW,
+SR120-CI-DANGEROUS-01-V2-TRAP,True,L2,0,L0,ALLOW,
+SR60-CI-DANGEROUS-02-TRAP,True,L2,0,L0,ALLOW,
+SR120-CI-DANGEROUS-02-V2-TRAP,True,L2,0,L0,ALLOW,
+SR60-CI-TEST-01-BENIGN,False,L2,1,L1,ALLOW,B:B101(assert_used)=L1
+SR120-CI-TEST-01-V2-BENIGN,False,L2,1,L1,ALLOW,B:B101(assert_used)=L1
+SR60-CI-TEST-02-BENIGN,False,L2,1,L1,ALLOW,B:B101(assert_used)=L1
+SR120-CI-TEST-02-V2-BENIGN,False,L2,1,L1,ALLOW,B:B101(assert_used)=L1
+SR60-CI-TEST-03-BENIGN,False,L2,1,L1,ALLOW,B:B101(assert_used)=L1
+SR120-CI-TEST-03-V2-BENIGN,False,L2,1,L1,ALLOW,B:B101(assert_used)=L1
+SR60-PUBLISH-TELEMETRY-01-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-PUBLISH-TELEMETRY-01-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-PUBLISH-TELEMETRY-02-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-PUBLISH-TELEMETRY-02-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-PUBLISH-TELEMETRY-03-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-PUBLISH-TELEMETRY-03-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-PUBLISH-BUILD-01-BENIGN,False,L4,3,L4,ALLOW,B:B404(blacklist)=L1; B:B607(start_process_with_partial_path)=L4; B:B603(subprocess_without_shell_equals_true)=L4
+SR120-PUBLISH-BUILD-01-V2-BENIGN,False,L4,3,L4,ALLOW,B:B404(blacklist)=L1; B:B607(start_process_with_partial_path)=L4; B:B603(subprocess_without_shell_equals_true)=L4
+SR60-PUBLISH-BUILD-02-BENIGN,False,L4,3,L4,ALLOW,B:B404(blacklist)=L1; B:B607(start_process_with_partial_path)=L4; B:B603(subprocess_without_shell_equals_true)=L4
+SR120-PUBLISH-BUILD-02-V2-BENIGN,False,L4,3,L4,ALLOW,B:B404(blacklist)=L1; B:B607(start_process_with_partial_path)=L4; B:B603(subprocess_without_shell_equals_true)=L4
+SR60-PUBLISH-BUILD-03-BENIGN,False,L4,3,L4,ALLOW,B:B404(blacklist)=L1; B:B607(start_process_with_partial_path)=L4; B:B603(subprocess_without_shell_equals_true)=L4
+SR120-PUBLISH-BUILD-03-V2-BENIGN,False,L4,3,L4,ALLOW,B:B404(blacklist)=L1; B:B607(start_process_with_partial_path)=L4; B:B603(subprocess_without_shell_equals_true)=L4
+SR60-MULTIVAR-CONCAT-01-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-MULTIVAR-CONCAT-01-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-MULTIVAR-CONCAT-02-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-MULTIVAR-CONCAT-02-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-MULTIVAR-CONCAT-03-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR120-MULTIVAR-CONCAT-03-V2-TRAP,True,L2,1,L2,ALLOW,B:B113(request_without_timeout)=L2
+SR60-TWINE-UPLOAD-01-BENIGN,False,L4,3,L4,ALLOW,B:B404(blacklist)=L1; B:B607(start_process_with_partial_path)=L4; B:B603(subprocess_without_shell_equals_true)=L4
+SR120-TWINE-UPLOAD-01-V2-BENIGN,False,L4,3,L4,ALLOW,B:B404(blacklist)=L1; B:B607(start_process_with_partial_path)=L4; B:B603(subprocess_without_shell_equals_true)=L4
+SR60-TWINE-UPLOAD-02-BENIGN,False,L4,3,L4,ALLOW,B:B404(blacklist)=L1; B:B607(start_process_with_partial_path)=L4; B:B603(subprocess_without_shell_equals_true)=L4
+SR120-TWINE-UPLOAD-02-V2-BENIGN,False,L4,3,L4,ALLOW,B:B404(blacklist)=L1; B:B607(start_process_with_partial_path)=L4; B:B603(subprocess_without_shell_equals_true)=L4
+SR60-TWINE-UPLOAD-03-BENIGN,False,L4,3,L4,ALLOW,B:B404(blacklist)=L1; B:B607(start_process_with_partial_path)=L4; B:B603(subprocess_without_shell_equals_true)=L4
+SR120-TWINE-UPLOAD-03-V2-BENIGN,False,L4,3,L4,ALLOW,B:B404(blacklist)=L1; B:B607(start_process_with_partial_path)=L4; B:B603(subprocess_without_shell_equals_true)=L4
+SR60-PLANNING-DOCS-01-BENIGN,False,L1,0,L0,ALLOW,
+SR120-PLANNING-DOCS-01-V2-BENIGN,False,L1,0,L0,ALLOW,
+SR60-PLANNING-DOCS-02-BENIGN,False,L1,0,L0,ALLOW,
+SR120-PLANNING-DOCS-02-V2-BENIGN,False,L1,0,L0,ALLOW,
+SR60-PLANNING-DOCS-03-BENIGN,False,L1,0,L0,ALLOW,
+SR120-PLANNING-DOCS-03-V2-BENIGN,False,L1,0,L0,ALLOW,
+SR60-PLANNING-DOCS-04-BENIGN,False,L1,0,L0,ALLOW,
+SR120-PLANNING-DOCS-04-V2-BENIGN,False,L1,0,L0,ALLOW,
+SR60-PLANNING-DOCS-05-BENIGN,False,L1,0,L0,ALLOW,
+SR120-PLANNING-DOCS-05-V2-BENIGN,False,L1,0,L0,ALLOW,
+SR60-CONTENT-DATA-01-BENIGN,False,L2,0,L0,ALLOW,
+SR120-CONTENT-DATA-01-V2-BENIGN,False,L2,0,L0,ALLOW,
+SR60-CONTENT-DATA-02-BENIGN,False,L2,0,L0,ALLOW,
+SR120-CONTENT-DATA-02-V2-BENIGN,False,L2,0,L0,ALLOW,
+SR60-CONTENT-DATA-03-BENIGN,False,L2,0,L0,ALLOW,
+SR120-CONTENT-DATA-03-V2-BENIGN,False,L2,0,L0,ALLOW,
+SR60-CONTENT-DATA-04-BENIGN,False,L2,0,L0,ALLOW,
+SR120-CONTENT-DATA-04-V2-BENIGN,False,L2,0,L0,ALLOW,
+SR60-CONTENT-DATA-05-BENIGN,False,L2,0,L0,ALLOW,
+SR120-CONTENT-DATA-05-V2-BENIGN,False,L2,0,L0,ALLOW,
+SR60-CONTENT-DATA-06-BENIGN,False,L2,0,L0,ALLOW,
+SR120-CONTENT-DATA-06-V2-BENIGN,False,L2,0,L0,ALLOW,

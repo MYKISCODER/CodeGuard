@@ -2,9 +2,9 @@
 
 > **Paper Title (Draft):** CodeGuard: A Lifecycle-Aware Defense against Repository-Level Poisoning for Coding Agents
 >
-> **Target Venue:** AAAI-27 (estimated deadline: Aug 2026)
+> **Target Venue:** NeurIPS 2026
 >
-> **Last Updated:** 2026-02-09
+> **Last Updated:** 2026-03-17
 
 ---
 
@@ -221,6 +221,26 @@ Layer 2 is the **Audit Parser** (LoRA fine-tuned model). Its role is strictly th
 | **target_pattern Accuracy** | Classification accuracy on obfuscation detection |
 | **End-to-end impact** | How Layer 2 accuracy affects downstream ASR/FBR (measured via Layer 3) |
 
+### Schema Normalization (Contract Enforcement)
+
+Each behavior in the Frozen Schema represents exactly one **atomic side effect**. However, a Layer 2 extractor (whether LLM-based or rule-based) may occasionally produce a non-atomic behavior — for example, a single behavior with `action=EXEC_CMD` and `data_flow=UPLOAD_EXFIL`, which conflates command execution with data exfiltration.
+
+**Normalization rule:** Before Layer 3 arbitration, a normalization step inspects each behavior. If a behavior carries both `action=EXEC_CMD` and `data_flow=UPLOAD_EXFIL`, it is split into two atomic behaviors:
+
+1. **Command execution fact:** original behavior with `data_flow` overridden to `NONE`
+2. **Exfiltration fact:** original behavior with `action` overridden to `NETWORK_CONNECT`
+
+This ensures that Layer 3 rules (R1 for exfiltration, R3 for command execution) each apply to the correct atomic fact, and the case-level `max()` aggregation produces the correct derived privilege (e.g., `max(L4, L3) = L4`).
+
+**Design rationale:**
+- **Auditability:** Two atomic behaviors produce a clearer audit trail than one mixed behavior — each rule fires on a distinct fact.
+- **Rule composability:** Layer 3 mechanisms (allowlist, obfuscation penalty, unresolvable-target escalation) are designed for single-dimension behaviors. Mixed behaviors can cause unintended interactions.
+- **Consistency:** The case-level OR/max aggregation naturally handles multi-behavior cases, making normalization a lossless transformation.
+
+**Scope:** This normalization does not modify the Frozen Schema field definitions or enum values. It is a **contract enforcement** step that ensures Layer 2 output conforms to the atomic-behavior invariant before policy evaluation.
+
+**Empirical validation:** On SemiReal-120 v1, the Layer 2 v4.1 extractor produced zero mixed behaviors (0/86 behaviors triggered normalization). All 120 case decisions are identical before and after normalization, confirming zero impact on existing results.
+
 ---
 
 ## 5. Layer 3 — Frozen Policy (Deterministic Arbitration)
@@ -392,7 +412,7 @@ The paper should include a sanitization on/off ablation to quantify its contribu
 
 ---
 
-## 7. Contributions Summary (AAAI-style)
+## 7. Contributions Summary
 
 The paper makes the following contributions:
 

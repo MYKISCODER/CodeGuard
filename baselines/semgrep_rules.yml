@@ -1,0 +1,87 @@
+rules:
+  # L4: Command execution
+  - id: exec-subprocess-shell
+    pattern: subprocess.run(..., shell=True, ...)
+    message: "subprocess.run with shell=True"
+    languages: [python]
+    severity: ERROR
+  - id: exec-subprocess-call-shell
+    pattern: subprocess.call(..., shell=True, ...)
+    message: "subprocess.call with shell=True"
+    languages: [python]
+    severity: ERROR
+  - id: exec-subprocess-popen-shell
+    pattern: subprocess.Popen(..., shell=True, ...)
+    message: "subprocess.Popen with shell=True"
+    languages: [python]
+    severity: ERROR
+  - id: exec-os-system
+    pattern: os.system(...)
+    message: "os.system call"
+    languages: [python]
+    severity: ERROR
+  - id: exec-eval
+    pattern: eval(...)
+    message: "eval() call"
+    languages: [python]
+    severity: ERROR
+  - id: exec-exec
+    pattern: exec(...)
+    message: "exec() call"
+    languages: [python]
+    severity: ERROR
+  - id: exec-subprocess-run
+    pattern: subprocess.run(...)
+    message: "subprocess.run call"
+    languages: [python]
+    severity: WARNING
+  - id: exec-subprocess-call
+    pattern: subprocess.call(...)
+    message: "subprocess.call call"
+    languages: [python]
+    severity: WARNING
+
+  # L3: Network upload / sensitive access
+  - id: net-requests-post
+    pattern: requests.post(...)
+    message: "requests.post (potential data upload)"
+    languages: [python]
+    severity: ERROR
+  - id: net-httpx-post
+    pattern: httpx.post(...)
+    message: "httpx.post (potential data upload)"
+    languages: [python]
+    severity: ERROR
+  - id: net-requests-get
+    pattern: requests.get(...)
+    message: "requests.get (network download)"
+    languages: [python]
+    severity: WARNING
+  - id: sensitive-env-access
+    pattern: os.environ[...]
+    message: "os.environ access"
+    languages: [python]
+    severity: ERROR
+  - id: sensitive-getenv
+    pattern: os.getenv(...)
+    message: "os.getenv access"
+    languages: [python]
+    severity: WARNING
+  - id: obfusc-base64-decode
+    pattern: base64.b64decode(...)
+    message: "base64 decode (potential obfuscation)"
+    languages: [python]
+    severity: WARNING
+
+  # L2: File operations / downloads
+  - id: file-open-write
+    patterns:
+      - pattern: open(..., "w", ...)
+    message: "file open for writing"
+    languages: [python]
+    severity: WARNING
+  - id: file-remove
+    pattern: os.remove(...)
+    message: "file removal"
+    languages: [python]
+    severity: WARNING

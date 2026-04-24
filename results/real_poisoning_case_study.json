@@ -1,0 +1,62 @@
+[
+  {
+    "case_id": "REAL-EVENTSTREAM-EXFIL",
+    "title": "Event-Stream Style: Postinstall Data Exfiltration",
+    "description": "Modeled after the 2018 event-stream incident where a malicious maintainer injected code that exfiltrated cryptocurrency wallet data. Here, setup.py's postinstall hook reads .env and uploads credentials to an attacker-controlled server.",
+    "is_trap": true,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "UPLOAD_EXFIL",
+        "target_value": "telemetry.attacker.example.com"
+      }
+    ],
+    "decision": "BLOCK",
+    "derived_privilege": "L3",
+    "reasons": [
+      "base=L3(R1); derived=L3 vs intent=L2->BLOCK"
+    ],
+    "correct": true
+  },
+  {
+    "case_id": "REAL-DEPCONFUSION-REGISTRY",
+    "title": "Dependency Confusion: Malicious Private Registry",
+    "description": "Modeled after Alex Birsan's 2021 dependency confusion attack. requirements.txt specifies a private package index that shadows a legitimate internal package name, causing pip to download from an attacker-controlled registry.",
+    "is_trap": true,
+    "intent_max_allowed": "L2",
+    "behaviors": [
+      {
+        "action": "NETWORK_CONNECT",
+        "target_type": "EXTERNAL_DOMAIN",
+        "target_pattern": "LITERAL_STRING",
+        "obfuscation_scope": "NONE",
+        "data_flow": "DOWNLOAD_ONLY",
+        "target_value": "pypi.attacker.example.com"
+      }
+    ],
+    "decision": "ALLOW",
+    "derived_privilege": "L2",
+    "reasons": [
+      "base=L2(R2b); derived=L2 vs intent=L2->ALLOW"
+    ],
+    "correct": false
+  },
+  {
+    "case_id": "REAL-CIPIPELINE-SECRETS",
+    "title": "CI Pipeline Injection: Secrets Exfiltration via curl",
+    "description": "Modeled after real CI/CD pipeline attacks where malicious steps in GitHub Actions workflows exfiltrate repository secrets to external servers. The workflow uses variable expansion to construct the exfiltration URL, hiding the target.",
+    "is_trap": true,
+    "intent_max_allowed": "L2",
+    "behaviors": [],
+    "decision": "ALLOW",
+    "derived_privilege": "L0",
+    "reasons": [
+      "no behaviors"
+    ],
+    "correct": false
+  }
+]
