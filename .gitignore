@@ -59,5 +59,21 @@ outputs/variant_failure*.md
 outputs/semireal20_remaining_issues*
 outputs/semireal60v2_execution_fbr_debug.md
 
-# NeurIPS样式文件（不属于代码）
+# 论文相关文件
 neurips_2026.sty
+spec.md
+spec_cn.md
+references.bib
+*.bib
+
+# 讲解/分析类文档
+docs/
+figures/
+notes.md
+mvp_cases.csv
+实验报告*.md
+outputs/*.md
+outputs/*.txt
+artifacts/*/README*.md
+artifacts/*/outputs/task*.md
+benchmark/SEMIREAL_60_V2_CHANGES.md
